@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity(), OTPReceiveListener {
         startSMSListener()
     }
 
-
     /**
      * Starts SmsRetriever, which waits for ONE matching SMS message until timeout
      * (5 minutes). The matching SMS message will be sent via a Broadcast Intent with
@@ -67,14 +66,12 @@ class MainActivity : AppCompatActivity(), OTPReceiveListener {
         showToast("OTP Time out")
     }
 
-
     override fun onDestroy() {
         super.onDestroy()
         if (smsReceiver != null) {
             LocalBroadcastManager.getInstance(this).unregisterReceiver(smsReceiver!!)
         }
     }
-
 
     private fun showToast(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
